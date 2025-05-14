@@ -1,11 +1,8 @@
 package com.SpringBootMachineCoding.Spring_boot_machine_coding.services;
 
-import org.springframework.stereotype.Service;
+import com.SpringBootMachineCoding.Spring_boot_machine_coding.models.Product;
 
-@Service
-public class ProductService {
+public interface ProductService {
+    Product getProductById(Long id);
 
-    public Object getProductById(long id){
-        return null;
-    }
 }
