@@ -3,13 +3,12 @@ package com.SpringBootMachineCoding.Spring_boot_machine_coding.models;
 import lombok.Getter;
 import lombok.Setter;
 
+//@Entity
 @Getter
 @Setter
-//@Entity
-public class Product {
+public class Category {
+
     Long id;
-    String description ;
-    String name;
-    Double price ;
-    Category category;
+    String title;
+
 }
