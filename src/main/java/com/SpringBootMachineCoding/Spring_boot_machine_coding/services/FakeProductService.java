@@ -55,7 +55,7 @@ public class FakeProductService implements ProductService {
     @Override
     public List<Product> getAllProducts(){
         FakeStoreProductDTO[] fakeStoreProductDTOsList =
-                restTemplate.getForEntity("https://fakestoreapi.com/products/", FakeStoreProductDTO[].class);
+                restTemplate.getForObject("https://fakestoreapi.com/products/", FakeStoreProductDTO[].class);
 
         List<Product> ProductList = new ArrayList<>();
         assert fakeStoreProductDTOsList != null;
