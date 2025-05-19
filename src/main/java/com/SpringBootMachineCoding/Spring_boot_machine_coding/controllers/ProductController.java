@@ -2,10 +2,7 @@ package com.SpringBootMachineCoding.Spring_boot_machine_coding.controllers;
 
 import com.SpringBootMachineCoding.Spring_boot_machine_coding.models.Product;
 import com.SpringBootMachineCoding.Spring_boot_machine_coding.services.FakeProductService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,6 +27,12 @@ public class ProductController {
     @GetMapping()
     public List<Product> getAllProductsAPI(){
         return  fakeProductService.getAllProducts();
+
+    }
+
+    @PutMapping("/update/{id}")
+    public  Product updateProduct(@PathVariable("id") Long id, @RequestBody Product product){
+        return  fakeProductService.updateProduct(id , product);
 
     }
 }
