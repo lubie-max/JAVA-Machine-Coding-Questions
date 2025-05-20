@@ -4,6 +4,7 @@ import com.SpringBootMachineCoding.Spring_boot_machine_coding.models.Product;
 import com.SpringBootMachineCoding.Spring_boot_machine_coding.services.FakeProductService;
 import org.springframework.web.bind.annotation.*;
 
+import javax.management.InstanceNotFoundException;
 import java.util.List;
 
 @RestController
@@ -19,7 +20,7 @@ public class ProductController {
 
 
     @GetMapping("/{id}")
-    public Product getProductById(@PathVariable("id") Long id){
+    public Product getProductById(@PathVariable("id") Long id) throws InstanceNotFoundException {
         return fakeProductService.getProductById(id);
 
     }
