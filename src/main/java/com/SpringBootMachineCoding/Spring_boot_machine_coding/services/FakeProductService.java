@@ -1,6 +1,7 @@
 package com.SpringBootMachineCoding.Spring_boot_machine_coding.services;
 
 import com.SpringBootMachineCoding.Spring_boot_machine_coding.dtos.FakeStoreProductDTO;
+import com.SpringBootMachineCoding.Spring_boot_machine_coding.exceptions.ProductNotFoundException;
 import com.SpringBootMachineCoding.Spring_boot_machine_coding.models.Category;
 import com.SpringBootMachineCoding.Spring_boot_machine_coding.models.Product;
 import org.springframework.http.HttpMethod;
@@ -51,12 +52,12 @@ public class FakeProductService implements ProductService {
     }
 
     @Override
-    public Product getProductById(Long id) throws InstanceNotFoundException {
+    public Product getProductById(Long id) throws ProductNotFoundException {
         FakeStoreProductDTO fakeStoreProductDTO =
                 restTemplate.getForObject("https://fakestoreapi.com/products/"+id , FakeStoreProductDTO.class);
 
         if(fakeStoreProductDTO == null){
-            throw new InstanceNotFoundException("No data for this productId : " + id);
+            throw new ProductNotFoundException("No data for this productId : " + id);
         }
         return ConvertFakeProductDTOToProduct(fakeStoreProductDTO);
     }
